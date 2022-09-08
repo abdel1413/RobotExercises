@@ -3,7 +3,7 @@ function countSteps(state, robot, memmory) {
   for (let step = 0; ; step++) {
     if (state.parcels.length == 0) return state;
     let action = robot(state, memmory);
-    state = action.move(action.direction);
+    state = state.move(action.direction);
     memmory = action.memmory;
   }
 }
@@ -21,3 +21,5 @@ function CompareRobot(robot1, memmory1, robot2, memory2) {
   console.log(`the robot 1 needs ${total1 / 100} steps per task`);
   console.log(`the robot2 needs ${total2 / 100} steps per task`);
 }
+
+CompareRobot(RouteRobot, [], goalOrientedRobot, []);
