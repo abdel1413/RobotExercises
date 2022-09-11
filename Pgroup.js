@@ -7,7 +7,7 @@ class PGroup {
   // if so then return the array
   //otherwise create a new pgroup with this element concatinated
   add(element) {
-    if (this.array.has(element)) return this; //add
+    if (this.has(element)) return this; //add
     return new PGroup(this.array.concat([element]));
   }
 
@@ -16,7 +16,7 @@ class PGroup {
   //if it is there then create a new pgroup without the
   //that specific element using filter
   delete(element) {
-    if (!this.array.has(element)) return this;
+    if (!this.has(element)) return this;
     return new PGroup(this.array.filter((values) => values !== element));
   }
 
@@ -26,5 +26,18 @@ class PGroup {
   }
 }
 
-let a = PGroup.adding("a");
+//  create an empty instance PGroup.empty,
+// that can be used as a starting value
+PGroup.empty = new PGroup([]);
+console.log(PGroup.empty); //PGroup {array: Array(0)}
+let a = PGroup.empty.add("a");
+console.log(PGroup.empty); //a added PGroup {array: Array(1)}
 console.log(a);
+let ab = a.add("b");
+console.log("b added to a", ab); //b added to a PGroup {array: Array(2)}
+
+//note if the unstruction were note given, we could do as follows
+let pg = new PGroup([]);
+console.log("pg", pg);
+let c = pg.add("c");
+console.log("c added to pg", c); //c added to pg PGroup {array: Array(1)}
