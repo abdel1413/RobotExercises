@@ -7,7 +7,10 @@ class PGroup {
   // if so then return the array
   //otherwise create a new pgroup with this element concatinated
   add(element) {
-    if (this.has(element)) return this; //add
+    if (this.has(element)) {
+      console.log("inside add", this);
+      return this;
+    } //add
     return new PGroup(this.array.concat([element]));
   }
 
@@ -16,7 +19,10 @@ class PGroup {
   //if it is there then create a new pgroup without the
   //that specific element using filter
   delete(element) {
-    if (!this.has(element)) return this;
+    if (!this.has(element)) {
+      console.log("inside delete", this);
+      return this;
+    }
     return new PGroup(this.array.filter((values) => values !== element));
   }
 
