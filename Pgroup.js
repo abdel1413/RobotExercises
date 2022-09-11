@@ -12,7 +12,7 @@ class PGroup {
   }
 
   //delete: call has mehtd to check if the element to
-  //delet is there. return the array
+  //delet is not there. return the array
   //if it is there then create a new pgroup without the
   //that specific element using filter
   delete(element) {
